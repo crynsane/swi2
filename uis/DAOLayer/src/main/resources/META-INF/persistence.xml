@@ -4,6 +4,7 @@
     <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
     <class>com.mendelu.uis.daolayer.domain.Predmet</class>
     <class>com.mendelu.uis.daolayer.dao.PredmetDao</class>
+    <class>com.mendelu.uis.daolayer.utils.DaoLayerException</class>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:derby://localhost:1527/sample"/>
       <property name="javax.persistence.jdbc.user" value="app"/>

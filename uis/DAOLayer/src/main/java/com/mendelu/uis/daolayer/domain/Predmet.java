@@ -12,63 +12,80 @@ public class Predmet {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    /*
+    
+    @NotNull
+    private String nazev;
+    
+    @NotNull
+    private String kodPredmetu;
+    
+    @NotNull
+    private int pocetKreditu;
+    
     @NotNull
     @ManyToOne(cascade=CascadeType.ALL)
     @JoinColumn(name="TRAINER_ID")
-    //private Trainer trainer;
+    private Ucitel ucitel;
 
-    @NotNull
-    @ManyToOne(cascade=CascadeType.PERSIST)
-    @JoinColumn(name="GYM_ID")*/
-    private String gym;
-
-    public Predmet(String trainer, String gym) {
-        //this.trainer = trainer;
-        this.gym = gym;
-        //trainer.addBadge(this);
+    public Predmet(String kodPredmetu, String nazev, int pocetKreditu, Ucitel ucitel) {
+        this.ucitel = ucitel;
+        this.kodPredmetu = kodPredmetu;
+        this.nazev = nazev;
+        this.pocetKreditu = pocetKreditu;
     }
-/*
-    protected Badge() {
+    
+    protected Predmet() {
     }
     
     public int getId() {
         return id;
     }
-    
-    public Trainer getTrainer() {
-        return trainer;
+
+    public String getNazev() {
+        return nazev;
     }
-    
-    public Gym getGym() {
-        return gym;
+
+    public void setNazev(String nazev) {
+        this.nazev = nazev;
     }
-    
-    public void setTrainer(Trainer trainer) {
-        this.trainer = trainer;
+
+    public String getKodPredmetu() {
+        return kodPredmetu;
     }
-    
-    public void setGym(Gym gym) {
-        this.gym = gym;
+
+    public void setKodPredmetu(String kodPredmetu) {
+        this.kodPredmetu = kodPredmetu;
+    }
+
+    public int getPocetKreditu() {
+        return pocetKreditu;
+    }
+
+    public void setPocetKreditu(int pocetKreditu) {
+        this.pocetKreditu = pocetKreditu;
+    }
+
+    public Ucitel getUcitel() {
+        return ucitel;
+    }
+
+    public void setUcitel(Ucitel ucitel) {
+        this.ucitel = ucitel;
     }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof Badge)) return false;
-
-        Badge badge = (Badge) o;
-
-        if (!getTrainer().equals(badge.getTrainer())) return false;
-        return getGym().equals(badge.getGym());
+        if (!(o instanceof Predmet)) return false;
+        return true;
 
     }
 
     @Override
     public int hashCode() {
-        int result = getTrainer().hashCode();
-        result = 31 * result + getGym().hashCode();
+        int result = getUcitel().hashCode();
+        result = 31 * result + getUcitel().hashCode();
         return result;
-    }*/
+    }
 
 }
