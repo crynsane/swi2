@@ -3,6 +3,7 @@
   <persistence-unit name="com.mendelu.uis_DAOLayer_pom_1.0-SNAPSHOTPU" transaction-type="RESOURCE_LOCAL">
     <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
     <class>com.mendelu.uis.daolayer.domain.Predmet</class>
+    <class>com.mendelu.uis.daolayer.dao.PredmetDao</class>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:derby://localhost:1527/sample"/>
       <property name="javax.persistence.jdbc.user" value="app"/>
