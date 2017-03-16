@@ -19,12 +19,12 @@ public interface PredmetDao {
     /**
      * Saves Predmet entity to database, can either update existing Predmet or save new one
      */
-    public void save(Predmet badge);
+    public void save(Predmet predmet);
 
     /**
      * Deletes given Predmet entity from database
      */
-    public void delete(Predmet badge);
+    public void delete(Predmet predmet);
 
     /**
      * Returns all Predmet entities from database

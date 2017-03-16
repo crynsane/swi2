@@ -1,6 +1,6 @@
 package com.mendelu.uis.daolayer.dao;
 
-import com.mendelu.uis.daolayer.domain.Predmet;
+import com.mendelu.uis.daolayer.domain.Student;
 import com.mendelu.uis.daolayer.utils.DaoLayerException;
 import org.springframework.stereotype.Repository;
 
@@ -12,31 +12,31 @@ import java.util.List;
  * @author Roman Pechal
  */
 @Repository
-public class PredmetDaoImpl implements PredmetDao {
+public class StudentDaoImpl implements StudentDao {
 
     @PersistenceContext
     private EntityManager entityManager;
 
     @Override
-    public Predmet findById(int id) {
+    public Student findById(int id) {
         try {
-            return entityManager.find(Predmet.class, id);
+            return entityManager.find(Student.class, id);
         } catch (Exception e) {
             throw new DaoLayerException(e.getMessage());
         }
     }
 
     @Override
-    public void save(Predmet predmet) {
-        if (findById(predmet.getId()) != null) {
+    public void save(Student student) {
+        if (findById(student.getId()) != null) {
             try {
-                entityManager.merge(predmet);
+                entityManager.merge(student);
             } catch (Exception e) {
                 throw new DaoLayerException(e.getMessage());
             }
         } else {
             try {
-                entityManager.persist(predmet);
+                entityManager.persist(student);
             } catch (Exception e) {
                 throw new DaoLayerException(e.getMessage());
             }
@@ -44,18 +44,18 @@ public class PredmetDaoImpl implements PredmetDao {
     }
 
     @Override
-    public void delete(Predmet predmet) {
+    public void delete(Student student) {
         try {
-            entityManager.remove(findById(predmet.getId()));
+            entityManager.remove(findById(student.getId()));
         } catch (Exception e) {
             throw new DaoLayerException(e.getMessage());
         }
     }
 
     @Override
-    public List<Predmet> findAll() {
+    public List<Student> findAll() {
         try {
-            return entityManager.createQuery("select b from Predmet b", Predmet.class).getResultList();
+            return entityManager.createQuery("select b from Student b", Student.class).getResultList();
         } catch (Exception e) {
             throw new DaoLayerException(e.getMessage());
         }

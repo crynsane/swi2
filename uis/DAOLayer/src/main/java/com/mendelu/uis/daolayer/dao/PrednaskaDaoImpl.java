@@ -1,6 +1,6 @@
 package com.mendelu.uis.daolayer.dao;
 
-import com.mendelu.uis.daolayer.domain.Predmet;
+import com.mendelu.uis.daolayer.domain.Prednaska;
 import com.mendelu.uis.daolayer.utils.DaoLayerException;
 import org.springframework.stereotype.Repository;
 
@@ -12,31 +12,31 @@ import java.util.List;
  * @author Roman Pechal
  */
 @Repository
-public class PredmetDaoImpl implements PredmetDao {
+public class PrednaskaDaoImpl implements PrednaskaDao {
 
     @PersistenceContext
     private EntityManager entityManager;
 
     @Override
-    public Predmet findById(int id) {
+    public Prednaska findById(int id) {
         try {
-            return entityManager.find(Predmet.class, id);
+            return entityManager.find(Prednaska.class, id);
         } catch (Exception e) {
             throw new DaoLayerException(e.getMessage());
         }
     }
 
     @Override
-    public void save(Predmet predmet) {
-        if (findById(predmet.getId()) != null) {
+    public void save(Prednaska prednaska) {
+        if (findById(prednaska.getId()) != null) {
             try {
-                entityManager.merge(predmet);
+                entityManager.merge(prednaska);
             } catch (Exception e) {
                 throw new DaoLayerException(e.getMessage());
             }
         } else {
             try {
-                entityManager.persist(predmet);
+                entityManager.persist(prednaska);
             } catch (Exception e) {
                 throw new DaoLayerException(e.getMessage());
             }
@@ -44,18 +44,18 @@ public class PredmetDaoImpl implements PredmetDao {
     }
 
     @Override
-    public void delete(Predmet predmet) {
+    public void delete(Prednaska prednaska) {
         try {
-            entityManager.remove(findById(predmet.getId()));
+            entityManager.remove(findById(prednaska.getId()));
         } catch (Exception e) {
             throw new DaoLayerException(e.getMessage());
         }
     }
 
     @Override
-    public List<Predmet> findAll() {
+    public List<Prednaska> findAll() {
         try {
-            return entityManager.createQuery("select b from Predmet b", Predmet.class).getResultList();
+            return entityManager.createQuery("select b from Prednaska b", Prednaska.class).getResultList();
         } catch (Exception e) {
             throw new DaoLayerException(e.getMessage());
         }
