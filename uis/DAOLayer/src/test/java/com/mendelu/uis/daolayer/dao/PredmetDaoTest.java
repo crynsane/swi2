@@ -7,9 +7,11 @@ package com.mendelu.uis.daolayer.dao;
 
 import com.mendelu.uis.daolayer.domain.Predmet;
 import com.mendelu.uis.daolayer.domain.Ucitel;
+import com.mendelu.uis.daolayer.utils.DatabaseConfig;
 import org.junit.Test;
 import static org.junit.Assert.*;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.TestExecutionListeners;
 import org.springframework.test.context.transaction.TransactionalTestExecutionListener;
 import org.springframework.transaction.annotation.Transactional;
@@ -18,6 +20,7 @@ import org.springframework.transaction.annotation.Transactional;
  *
  * @author Jakub Jůza
  */
+@ContextConfiguration(classes = DatabaseConfig.class)
 @TestExecutionListeners(TransactionalTestExecutionListener.class)
 @Transactional
 public class PredmetDaoTest {
