@@ -44,8 +44,7 @@ public class Cviceni {
    @NotNull
     private Predmet predmet;
 
-    public Cviceni(int id, String ucebna, int kapacita, Ucitel cvicici, ArrayList<Student> studenti, Timestamp zacatek, Timestamp konec, Predmet predmet) {
-        this.id = id;
+    public Cviceni(String ucebna, int kapacita, Ucitel cvicici, ArrayList<Student> studenti, Timestamp zacatek, Timestamp konec, Predmet predmet) {
         this.ucebna = ucebna;
         this.kapacita = kapacita;
         this.cvicici = cvicici;

@@ -38,8 +38,7 @@ public class Student {
     @NotNull
     private int ziskaneKredity;
 
-    public Student(int id, String jmeno, String titul, int semestr, String email, ArrayList<Predmet> predmety, int ziskaneKredity) {
-        this.id = id;
+    public Student(String jmeno, String titul, int semestr, String email, ArrayList<Predmet> predmety, int ziskaneKredity) {
         this.jmeno = jmeno;
         this.titul = titul;
         this.semestr = semestr;

@@ -25,8 +25,7 @@ public class Ucitel {
     @NotNull
     private String email;    
 
-    public Ucitel(int id, String jmeno, String titul, String pracoviste, String email) {
-        this.id = id;
+    public Ucitel(String jmeno, String titul, String pracoviste, String email) {
         this.jmeno = jmeno;
         this.titul = titul;
         this.pracoviste = pracoviste;

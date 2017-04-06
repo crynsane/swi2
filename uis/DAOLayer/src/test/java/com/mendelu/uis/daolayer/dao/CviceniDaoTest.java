@@ -1,0 +1,95 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package com.mendelu.uis.daolayer.dao;
+
+import com.mendelu.uis.daolayer.domain.Cviceni;
+import com.mendelu.uis.daolayer.domain.Predmet;
+import com.mendelu.uis.daolayer.domain.Student;
+import com.mendelu.uis.daolayer.domain.Ucitel;
+import java.sql.Timestamp;
+import java.util.ArrayList;
+import org.junit.Test;
+import static org.junit.Assert.*;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.context.TestExecutionListeners;
+import org.springframework.test.context.testng.AbstractTestNGSpringContextTests;
+import org.springframework.test.context.transaction.TransactionalTestExecutionListener;
+import org.springframework.transaction.annotation.Transactional;
+
+/**
+ *
+ * @author Jakub Jůza
+ */
+@TestExecutionListeners(TransactionalTestExecutionListener.class)
+@Transactional
+public class CviceniDaoTest extends AbstractTestNGSpringContextTests {
+    
+    @Autowired
+    private CviceniDao cviceniDao;
+
+    /**
+     * Test of save method, of class CviceniDao.
+     */
+    @Test
+    public void testSave() {        
+        Ucitel u = new Ucitel("Jan Novak", "Ing.", "UI", "jan.novak@mendelu.cz");
+        Predmet p = new Predmet("AR", "Artritis", 4, u);
+        ArrayList<Predmet> ps = new ArrayList<>();
+        ps.add(p);
+        Student s1 = new Student("Jiri Par", "", 3, "xpar@mendelu.cz", ps, 5);
+        ArrayList<Student> s = new ArrayList<>();
+        s.add(s1);
+        Timestamp zac = new Timestamp(1300), kon = new Timestamp(1440);
+        Cviceni cviceni = new Cviceni("Q12", 20, u, s, zac, kon, p);
+        
+        cviceniDao.save(cviceni);
+        
+        int id = cviceni.getId();
+        Cviceni ret = cviceniDao.findById(id);
+        assertEquals(cviceni, ret);
+    }
+
+    /**
+     * Test of delete method, of class CviceniDao.
+     */
+    @Test
+    public void testDelete() {
+        Ucitel u = new Ucitel("Jan Novak", "Ing.", "UI", "jan.novak@mendelu.cz");
+        Predmet p = new Predmet("AR", "Artritis", 4, u);
+        ArrayList<Predmet> ps = new ArrayList<>();
+        ps.add(p);
+        Student s1 = new Student("Jiri Par", "", 3, "xpar@mendelu.cz", ps, 5);
+        ArrayList<Student> s = new ArrayList<>();
+        s.add(s1);
+        Timestamp zac = new Timestamp(1300), kon = new Timestamp(1440);
+        Cviceni cviceni = new Cviceni("Q12", 20, u, s, zac, kon, p);
+        
+        cviceniDao.save(cviceni);
+        cviceniDao.delete(cviceni);
+        
+        assertEquals(0, cviceniDao.findAll().size());
+    }
+
+    /**
+     * Test of findAll method, of class CviceniDao.
+     */
+    @Test
+    public void testFindAll() {
+        Ucitel u = new Ucitel("Jan Novak", "Ing.", "UI", "jan.novak@mendelu.cz");
+        Predmet p = new Predmet("AR", "Artritis", 4, u);
+        ArrayList<Predmet> ps = new ArrayList<>();
+        ps.add(p);
+        Student s1 = new Student("Jiri Par", "", 3, "xpar@mendelu.cz", ps, 5);
+        ArrayList<Student> s = new ArrayList<>();
+        s.add(s1);
+        Timestamp zac = new Timestamp(1300), kon = new Timestamp(1440);
+        Cviceni cviceni = new Cviceni("Q12", 20, u, s, zac, kon, p);
+        
+        cviceniDao.save(cviceni);
+        
+        assertEquals(1, cviceniDao.findAll().size());
+    } 
+}

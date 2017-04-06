@@ -39,8 +39,7 @@ public class Prednaska {
    @NotNull
     private Timestamp konec;
 
-    public Prednaska(int id, String ucebna, Ucitel ucitel, Predmet predmet, Timestamp zacatek, Timestamp konec) {
-        this.id = id;
+    public Prednaska(String ucebna, Ucitel ucitel, Predmet predmet, Timestamp zacatek, Timestamp konec) {
         this.ucebna = ucebna;
         this.ucitel = ucitel;
         this.predmet = predmet;
