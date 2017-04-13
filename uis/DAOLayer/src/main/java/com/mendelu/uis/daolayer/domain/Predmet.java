@@ -23,8 +23,7 @@ public class Predmet {
     private int pocetKreditu;
     
     @NotNull
-    @ManyToOne(cascade=CascadeType.ALL)
-    @JoinColumn(name="TRAINER_ID")
+    @ManyToOne(cascade=CascadeType.PERSIST)
     private Ucitel ucitel;
 
     public Predmet(String kodPredmetu, String nazev, int pocetKreditu, Ucitel ucitel) {

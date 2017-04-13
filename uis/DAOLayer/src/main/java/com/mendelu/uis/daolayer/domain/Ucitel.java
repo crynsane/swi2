@@ -13,7 +13,7 @@ public class Ucitel {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     
-@NotNull
+    @NotNull
     private String jmeno;
     
     @NotNull
@@ -32,7 +32,7 @@ public class Ucitel {
         this.email = email;
     }
 
-    public Ucitel() {
+    protected Ucitel() {
     }
 
     public int getId() {

@@ -40,13 +40,12 @@ public class CviceniDaoTest extends AbstractTestNGSpringContextTests {
     public void testSave() {        
         Ucitel u = new Ucitel("Jan Novak", "Ing.", "UI", "jan.novak@mendelu.cz");
         Predmet p = new Predmet("AR", "Artritis", 4, u);
-        ArrayList<Predmet> ps = new ArrayList<>();
-        ps.add(p);
-        Student s1 = new Student("Jiri Par", "", 3, "xpar@mendelu.cz", ps, 5);
-        ArrayList<Student> s = new ArrayList<>();
-        s.add(s1);
+        Student s1 = new Student("Jiri Par", "", 3, "xpar@mendelu.cz", 5);
+        s1.addPredmet(p);
+       
         Timestamp zac = new Timestamp(1300), kon = new Timestamp(1440);
-        Cviceni cviceni = new Cviceni("Q12", 20, u, s, zac, kon, p);
+        Cviceni cviceni = new Cviceni("Q12", 20, u, zac, kon, p);
+        cviceni.addStudent(s1);
         
         cviceniDao.save(cviceni);
         
@@ -62,13 +61,12 @@ public class CviceniDaoTest extends AbstractTestNGSpringContextTests {
     public void testDelete() {
         Ucitel u = new Ucitel("Jan Novak", "Ing.", "UI", "jan.novak@mendelu.cz");
         Predmet p = new Predmet("AR", "Artritis", 4, u);
-        ArrayList<Predmet> ps = new ArrayList<>();
-        ps.add(p);
-        Student s1 = new Student("Jiri Par", "", 3, "xpar@mendelu.cz", ps, 5);
-        ArrayList<Student> s = new ArrayList<>();
-        s.add(s1);
+        Student s1 = new Student("Jiri Par", "", 3, "xpar@mendelu.cz", 5);
+        s1.addPredmet(p);
+      
         Timestamp zac = new Timestamp(1300), kon = new Timestamp(1440);
-        Cviceni cviceni = new Cviceni("Q12", 20, u, s, zac, kon, p);
+        Cviceni cviceni = new Cviceni("Q12", 20, u, zac, kon, p);
+        cviceni.addStudent(s1);
         
         cviceniDao.save(cviceni);
         cviceniDao.delete(cviceni);
@@ -83,13 +81,12 @@ public class CviceniDaoTest extends AbstractTestNGSpringContextTests {
     public void testFindAll() {
         Ucitel u = new Ucitel("Jan Novak", "Ing.", "UI", "jan.novak@mendelu.cz");
         Predmet p = new Predmet("AR", "Artritis", 4, u);
-        ArrayList<Predmet> ps = new ArrayList<>();
-        ps.add(p);
-        Student s1 = new Student("Jiri Par", "", 3, "xpar@mendelu.cz", ps, 5);
-        ArrayList<Student> s = new ArrayList<>();
-        s.add(s1);
+        Student s1 = new Student("Jiri Par", "", 3, "xpar@mendelu.cz", 5);
+        s1.addPredmet(p);
+       
         Timestamp zac = new Timestamp(1300), kon = new Timestamp(1440);
-        Cviceni cviceni = new Cviceni("Q12", 20, u, s, zac, kon, p);
+        Cviceni cviceni = new Cviceni("Q12", 20, u, zac, kon, p);
+        cviceni.addStudent(s1);
         
         cviceniDao.save(cviceni);
         

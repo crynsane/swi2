@@ -10,10 +10,10 @@
     <persistence-unit name="GacrPersistence" transaction-type="RESOURCE_LOCAL">
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
         <properties>
-            <property name="hibernate.connection.url" value="jdbc:postgres://gzdrmsdw:-iTejtVIM81AAcs0ZedLoxYFB3XjKxUe@echo.db.elephantsql.com:5432/gzdrmsdw" />
+            <property name="hibernate.connection.url" value="jdbc:postgresql://echo-01.db.elephantsql.com:5432/wfekayeq" />
             
-            <property name="hibernate.connection.username" value="gzdrmsdw" />
-            <property name="hibernate.connection.password" value="-iTejtVIM81AAcs0ZedLoxYFB3XjKxUe" />
+            <property name="hibernate.connection.username" value="wfekayeq" />
+            <property name="hibernate.connection.password" value="cdGYs2Y7Jyps4rnto3Y6PPccUB9LEkub" />
             
             
             <property name="hibernate.connection.driver_class" value="org.postgresql.Driver" />

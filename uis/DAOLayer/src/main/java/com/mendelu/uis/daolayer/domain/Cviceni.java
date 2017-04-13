@@ -7,15 +7,25 @@ package com.mendelu.uis.daolayer.domain;
 
 import java.sql.Timestamp;
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.Set;
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.validation.constraints.NotNull;
 
 /**
  *
  * @author Stofa
  */
+@Entity
 public class Cviceni {
     
     @Id
@@ -29,10 +39,12 @@ public class Cviceni {
     private int kapacita;
     
     @NotNull
+    @OneToOne(cascade = CascadeType.PERSIST)
     private Ucitel cvicici;
     
     @NotNull
-    private ArrayList<Student> studenti;
+    @OneToMany(cascade = CascadeType.PERSIST)
+    private Set<Student> studenti = new HashSet<>();
     
     @NotNull
     private Timestamp zacatek;
@@ -42,13 +54,14 @@ public class Cviceni {
     private Timestamp konec;
    
    @NotNull
+   @ManyToOne(cascade = CascadeType.PERSIST)
     private Predmet predmet;
 
-    public Cviceni(String ucebna, int kapacita, Ucitel cvicici, ArrayList<Student> studenti, Timestamp zacatek, Timestamp konec, Predmet predmet) {
+    public Cviceni(String ucebna, int kapacita, Ucitel cvicici, Timestamp zacatek, Timestamp konec, Predmet predmet) {
         this.ucebna = ucebna;
         this.kapacita = kapacita;
         this.cvicici = cvicici;
-        this.studenti = studenti;
+        
         this.zacatek = zacatek;
         this.konec = konec;
         this.predmet = predmet;
@@ -85,12 +98,20 @@ public class Cviceni {
         this.cvicici = cvicici;
     }
 
-    public ArrayList<Student> getStudenti() {
-        return studenti;
+    public Set<Student> getStudenti() {
+        return Collections.unmodifiableSet(studenti);
     }
 
-    public void setStudenti(ArrayList<Student> studenti) {
-        this.studenti = studenti;
+    public void addStudent(Student student) {
+        if (student != null) {
+            this.studenti.add(student);
+        }
+    }
+
+    public void addStudent(Collection<Student> student) {
+        if (student != null) {
+            this.studenti.addAll(student);
+        }
     }
 
     public Timestamp getZacatek() {

@@ -6,15 +6,22 @@
 package com.mendelu.uis.daolayer.domain;
 
 import java.sql.Timestamp;
+import java.util.Date;
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.validation.constraints.NotNull;
 
 /**
  *
  * @author Stofa
  */
+@Entity
 public class Prednaska {
     
     
@@ -27,19 +34,22 @@ public class Prednaska {
     private String ucebna;
     
     @NotNull
+    @ManyToOne(cascade=CascadeType.PERSIST)
     private Ucitel ucitel;
     
     @NotNull
+    @OneToOne
+    @ManyToOne(cascade=CascadeType.PERSIST)
     private Predmet predmet;
     
      @NotNull
-    private Timestamp zacatek;
+    private Date zacatek;
     
     
    @NotNull
-    private Timestamp konec;
+    private Date konec;
 
-    public Prednaska(String ucebna, Ucitel ucitel, Predmet predmet, Timestamp zacatek, Timestamp konec) {
+    public Prednaska(String ucebna, Ucitel ucitel, Predmet predmet, Date zacatek, Date konec) {
         this.ucebna = ucebna;
         this.ucitel = ucitel;
         this.predmet = predmet;
@@ -78,7 +88,7 @@ public class Prednaska {
         this.predmet = predmet;
     }
 
-    public Timestamp getZacatek() {
+    public Date getZacatek() {
         return zacatek;
     }
 
@@ -86,7 +96,7 @@ public class Prednaska {
         this.zacatek = zacatek;
     }
 
-    public Timestamp getKonec() {
+    public Date getKonec() {
         return konec;
     }
 

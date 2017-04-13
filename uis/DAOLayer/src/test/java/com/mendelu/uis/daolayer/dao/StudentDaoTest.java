@@ -10,13 +10,16 @@ import com.mendelu.uis.daolayer.domain.Student;
 import com.mendelu.uis.daolayer.domain.Ucitel;
 import com.mendelu.uis.daolayer.utils.DatabaseConfig;
 import java.util.ArrayList;
-import org.junit.Test;
-import static org.junit.Assert.*;
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.TestExecutionListeners;
+import org.springframework.test.context.testng.AbstractTestNGSpringContextTests;
 import org.springframework.test.context.transaction.TransactionalTestExecutionListener;
 import org.springframework.transaction.annotation.Transactional;
+import org.testng.annotations.Test;
+
+import static org.junit.Assert.*;
 
 /**
  *
@@ -25,7 +28,7 @@ import org.springframework.transaction.annotation.Transactional;
 @ContextConfiguration(classes = DatabaseConfig.class)
 @TestExecutionListeners(TransactionalTestExecutionListener.class)
 @Transactional
-public class StudentDaoTest {
+public class StudentDaoTest extends AbstractTestNGSpringContextTests{
     @Autowired
     private StudentDao studentDao;
 
@@ -36,9 +39,9 @@ public class StudentDaoTest {
     public void testSave() {
         Ucitel u = new Ucitel("Jan Novak", "Ing.", "UI", "jan.novak@mendelu.cz");
         Predmet p = new Predmet("AR", "Artritis", 4, u);
-        ArrayList<Predmet> ps = new ArrayList<>();
-        ps.add(p);
-        Student s1 = new Student("Jiri Par", "", 3, "xpar@mendelu.cz", ps, 5);
+        
+        Student s1 = new Student("Jiri Par", "", 3, "xpar@mendelu.cz", 5);
+        s1.addPredmet(p);
         
         studentDao.save(s1);
         
@@ -54,9 +57,9 @@ public class StudentDaoTest {
     public void testDelete() {
         Ucitel u = new Ucitel("Jan Novak", "Ing.", "UI", "jan.novak@mendelu.cz");
         Predmet p = new Predmet("AR", "Artritis", 4, u);
-        ArrayList<Predmet> ps = new ArrayList<>();
-        ps.add(p);
-        Student s1 = new Student("Jiri Par", "", 3, "xpar@mendelu.cz", ps, 5);
+       
+        Student s1 = new Student("Jiri Par", "", 3, "xpar@mendelu.cz", 5);
+        s1.addPredmet(p);
         
         studentDao.save(s1);
         studentDao.delete(s1);
@@ -70,9 +73,9 @@ public class StudentDaoTest {
     public void testFindAll() {
         Ucitel u = new Ucitel("Jan Novak", "Ing.", "UI", "jan.novak@mendelu.cz");
         Predmet p = new Predmet("AR", "Artritis", 4, u);
-        ArrayList<Predmet> ps = new ArrayList<>();
-        ps.add(p);
-        Student s1 = new Student("Jiri Par", "", 3, "xpar@mendelu.cz", ps, 5);
+       
+        Student s1 = new Student("Jiri Par", "", 3, "xpar@mendelu.cz", 5);
+        s1.addPredmet(p);
         
         studentDao.save(s1);
         assertEquals(1, studentDao.findAll().size());

@@ -7,13 +7,15 @@ package com.mendelu.uis.daolayer.dao;
 
 import com.mendelu.uis.daolayer.domain.Ucitel;
 import com.mendelu.uis.daolayer.utils.DatabaseConfig;
-import org.junit.Test;
-import static org.junit.Assert.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.TestExecutionListeners;
+import org.springframework.test.context.testng.AbstractTestNGSpringContextTests;
 import org.springframework.test.context.transaction.TransactionalTestExecutionListener;
 import org.springframework.transaction.annotation.Transactional;
+import org.testng.annotations.Test;
+
+import static org.junit.Assert.*;
 
 /**
  *
@@ -22,7 +24,7 @@ import org.springframework.transaction.annotation.Transactional;
 @ContextConfiguration(classes = DatabaseConfig.class)
 @TestExecutionListeners(TransactionalTestExecutionListener.class)
 @Transactional
-public class UcitelDaoTest {
+public class UcitelDaoTest extends AbstractTestNGSpringContextTests{
     
     @Autowired
     private UcitelDao ucitelDao;

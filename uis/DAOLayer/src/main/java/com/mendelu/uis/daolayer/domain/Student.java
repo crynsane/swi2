@@ -6,15 +6,24 @@
 package com.mendelu.uis.daolayer.domain;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.validation.constraints.NotNull;
 
 /**
  *
  * @author Stofa
  */
+@Entity
 public class Student {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -33,17 +42,18 @@ public class Student {
     private String email; 
     
     @NotNull
-    private ArrayList<Predmet> predmety;
+    @OneToMany(cascade = CascadeType.PERSIST)
+    private Set<Predmet> predmety = new HashSet<>();
     
     @NotNull
     private int ziskaneKredity;
 
-    public Student(String jmeno, String titul, int semestr, String email, ArrayList<Predmet> predmety, int ziskaneKredity) {
+    public Student(String jmeno, String titul, int semestr, String email, int ziskaneKredity) {
         this.jmeno = jmeno;
         this.titul = titul;
         this.semestr = semestr;
         this.email = email;
-        this.predmety = predmety;
+        
         this.ziskaneKredity = ziskaneKredity;
     }
 
@@ -86,12 +96,22 @@ public class Student {
         this.email = email;
     }
 
-    public ArrayList<Predmet> getPredmety() {
-        return predmety;
+   
+
+    public Set<Predmet> getPredmet() {
+        return Collections.unmodifiableSet(predmety);
     }
 
-    public void setPredmety(ArrayList<Predmet> predmety) {
-        this.predmety = predmety;
+    public void addPredmet(Predmet predmet) {
+        if (predmet != null) {
+            this.predmety.add(predmet);
+        }
+    }
+
+    public void addPredmet(Collection<Predmet> predmet) {
+        if (predmet != null) {
+            this.predmety.addAll(predmet);
+        }
     }
 
     public int getZiskaneKredity() {
