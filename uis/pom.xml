@@ -16,5 +16,6 @@
 
     <modules>
         <module>DAOLayer</module>
+        <module>ServiceLayer</module>
     </modules>
 </project>

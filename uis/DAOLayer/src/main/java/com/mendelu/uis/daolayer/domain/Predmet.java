@@ -36,6 +36,7 @@ public class Predmet {
     protected Predmet() {
     }
     
+    
     public int getId() {
         return id;
     }
@@ -86,5 +87,4 @@ public class Predmet {
         result = 31 * result + getUcitel().hashCode();
         return result;
     }
-
 }
