@@ -17,8 +17,16 @@ public interface PredmetService {
    
     
     String getNazev(Predmet predmet);
+    
+        List<Predmet> findAll();
 
-   
+    void delete(Predmet predmet);
+
+    void create(Predmet predmet);
+
+    void update(Predmet predmet, String newName);
+
+     
 
     /**
     
