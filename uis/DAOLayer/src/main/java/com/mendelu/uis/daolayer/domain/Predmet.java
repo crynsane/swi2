@@ -87,4 +87,8 @@ public class Predmet {
         result = 31 * result + getUcitel().hashCode();
         return result;
     }
+
+    public void setName(String newName) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }

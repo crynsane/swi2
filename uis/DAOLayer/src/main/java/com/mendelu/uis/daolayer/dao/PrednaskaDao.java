@@ -31,4 +31,6 @@ public interface PrednaskaDao {
      */
     public List<Prednaska> findAll();
 
+    public Prednaska findById();
+
 }

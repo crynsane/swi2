@@ -6,19 +6,19 @@
 package com.mendelu.uis.servicelayer.service;
 
 import com.mendelu.uis.daolayer.domain.Predmet;
-import com.mendelu.uis.daolayer.domain.Student;
+
 import java.util.List;
 
 /**
  *
- * @author tjurnicek
+ * @author xnemet
  */
 public interface PredmetService {
    
     
     String getNazev(Predmet predmet);
     
-        List<Predmet> findAll();
+    List<Predmet> findAll();
 
     void delete(Predmet predmet);
 

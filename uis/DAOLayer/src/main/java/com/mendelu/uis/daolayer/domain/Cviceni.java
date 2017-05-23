@@ -137,6 +137,16 @@ public class Cviceni {
     public void setPredmet(Predmet predmet) {
         this.predmet = predmet;
     }
+
+    public void setName(String newName) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public String getNazev() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    
    
    
 }

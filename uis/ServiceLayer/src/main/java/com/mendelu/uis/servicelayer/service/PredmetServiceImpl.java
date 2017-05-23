@@ -13,7 +13,7 @@ import org.springframework.stereotype.Service;
 
 /**
  *
- * @author tjurnicek
+ * @author xnemet
  */
 @Service
 public class PredmetServiceImpl implements PredmetService {
