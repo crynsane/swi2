@@ -39,7 +39,7 @@ public class PrednaskaServiceImpl implements PrednaskaService {
     
     @Override
     public Prednaska findById(int id) {
-        return prednaskaDao.findById();}
+        return prednaskaDao.findById(id);}
 
     @Override
     public void save(Prednaska prednaska) {
