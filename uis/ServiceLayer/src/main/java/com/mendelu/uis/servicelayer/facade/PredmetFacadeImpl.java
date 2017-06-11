@@ -11,8 +11,8 @@ import com.mendelu.uis.servicelayer.service.PredmetService;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import javax.inject.Inject;
 import java.util.List;
+import javax.inject.Inject;
 /**
  *
  * @author pechal

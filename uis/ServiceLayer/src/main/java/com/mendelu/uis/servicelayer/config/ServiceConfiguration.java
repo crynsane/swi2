@@ -15,7 +15,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
  */
 @Configuration
 @Import(DatabaseConfig.class)
-@ComponentScan(basePackages = "com.mendelu.servicelayer.service")
+@ComponentScan(basePackages = "com.mendelu.uis.servicelayer")
 public class ServiceConfiguration {
 
     @Bean

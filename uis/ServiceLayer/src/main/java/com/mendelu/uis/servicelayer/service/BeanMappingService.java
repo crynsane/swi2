@@ -9,7 +9,6 @@ import java.util.List;
 /**
  * @author dhanak tjurnicek
  */
-@Service
 public interface BeanMappingService {
 
     <T> List<T> mapTo(Collection<?> objects, Class<T> mapToClass);
