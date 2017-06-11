@@ -16,3 +16,4 @@ hs_err_pid*
 */target/*
 /uis/DAOLayer/target/
 /uis/ServiceLayer/target/
+/uis/WebLayer/target/
