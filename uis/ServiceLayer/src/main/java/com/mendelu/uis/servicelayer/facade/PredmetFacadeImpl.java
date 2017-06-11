@@ -28,7 +28,7 @@ public class PredmetFacadeImpl implements PredmetFacade {
     private BeanMappingService beanMappingService;
 
     @Override
-    public List<Predmet> getAllPredemt() {
+    public List<Predmet> getAllPredmet() {
         return beanMappingService.mapTo(predmetService.findAll(), Predmet.class);
     }
     

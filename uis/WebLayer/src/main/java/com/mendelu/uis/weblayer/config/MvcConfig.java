@@ -23,12 +23,12 @@ import javax.validation.Validator;
 @EnableWebMvc
 @Configuration
 //@Import({SampleDataConfig.class})
-@ComponentScan(basePackages = "cz.fi.muni.pa165.seminar.pkmnleague.mvc")
+@ComponentScan(basePackages = "com.mendelu.uis.weblayer")
 public class MvcConfig extends WebMvcConfigurerAdapter {
 
     @Override
     public void addViewControllers(ViewControllerRegistry registry) {
-        registry.addViewController("/login").setViewName("login");
+        registry.addViewController("/home").setViewName("home");
     }
 
     @Override
