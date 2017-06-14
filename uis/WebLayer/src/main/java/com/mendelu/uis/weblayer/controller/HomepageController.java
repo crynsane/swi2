@@ -23,8 +23,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 public class HomepageController {
 
     @Autowired
-    private PredmetFacade predmetFacade;
-
+    PredmetFacade predmetFacade;
+    
+    @RequestMapping("")
+    public String index(Model model, Principal principal) {
+        List<Predmet> predmets = predmetFacade.getAllPredmet();
+        
+        model.addAttribute("predmets", predmets);
+        return "home";
+    }
+/*
     @RequestMapping(method = RequestMethod.GET)
     public String list(Model model, Principal principal) {
         
@@ -41,5 +49,5 @@ public class HomepageController {
         
         model.addAttribute("predmets", predmets);
         return "home";
-    }
+    }*/
 }
