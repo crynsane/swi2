@@ -6,10 +6,8 @@
 package com.mendelu.uis.weblayer.controller;
 
 import com.mendelu.uis.daolayer.domain.Predmet;
-import com.mendelu.uis.daolayer.domain.Ucitel;
 import com.mendelu.uis.servicelayer.facade.PredmetFacade;
 import java.security.Principal;
-import java.util.ArrayList;
 import java.util.List;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -29,6 +27,8 @@ public class HomepageController {
 
     @RequestMapping(method = RequestMethod.GET)
     public String list(Model model, Principal principal) {
+        
+        //predmetFacade = new PredmetFacadeImpl();
         //TrainerDTO trainer = trainerFacade.getTrainerWithEmail(principal.getName());
         //model.addAttribute("trainer", trainer);
         //List<Predmet> badges = badgeFacade.getBadgesByTrainer(trainer.getId());

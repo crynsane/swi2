@@ -55,11 +55,13 @@ public class PredmetDaoTest extends AbstractTestNGSpringContextTests{
     public void testDelete() {
         Ucitel u = new Ucitel("Jan Novak", "Ing.", "UI", "jan.novak@mendelu.cz");
         Predmet p = new Predmet("AR", "Artritis", 4, u);
+        
+        int size = predmetDao.findAll().size();
                 
         predmetDao.save(p);
         predmetDao.delete(p);
         
-        assertEquals(0, predmetDao.findAll().size());
+        assertEquals(size, predmetDao.findAll().size());
     }
 
     /**
@@ -70,8 +72,9 @@ public class PredmetDaoTest extends AbstractTestNGSpringContextTests{
         Ucitel u = new Ucitel("Jan Novak", "Ing.", "UI", "jan.novak@mendelu.cz");
         Predmet p = new Predmet("AR", "Artritis", 4, u);
                 
+        int size = predmetDao.findAll().size();
         predmetDao.save(p);        
         
-        assertEquals(1, predmetDao.findAll().size());
+        assertEquals(size+1, predmetDao.findAll().size());
     }
 }

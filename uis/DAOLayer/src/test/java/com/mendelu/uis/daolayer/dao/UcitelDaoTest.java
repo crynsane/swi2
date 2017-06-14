@@ -48,9 +48,10 @@ public class UcitelDaoTest extends AbstractTestNGSpringContextTests{
     @Test
     public void testDelete() {
         Ucitel u = new Ucitel("Jan Novak", "Ing.", "UI", "jan.novak@mendelu.cz");
+        int size = ucitelDao.findAll().size();
         ucitelDao.save(u);
         ucitelDao.delete(u);
-        assertEquals(0, ucitelDao.findAll().size());
+        assertEquals(size, ucitelDao.findAll().size());
     }
 
     /**
@@ -59,7 +60,8 @@ public class UcitelDaoTest extends AbstractTestNGSpringContextTests{
     @Test
     public void testFindAll() {
         Ucitel u = new Ucitel("Jan Novak", "Ing.", "UI", "jan.novak@mendelu.cz");
+        int size = ucitelDao.findAll().size();
         ucitelDao.save(u);
-        assertEquals(1, ucitelDao.findAll().size());
+        assertEquals(size+1, ucitelDao.findAll().size());
     }
 }

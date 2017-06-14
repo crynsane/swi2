@@ -13,5 +13,5 @@ import java.util.List;
  * @author pechal
  */
 public interface PredmetFacade {
-    List<Predmet> getAllPredmet();
+    public List<Predmet> getAllPredmet();
 }
